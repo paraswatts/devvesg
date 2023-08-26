@@ -1,0 +1,17 @@
+schema: http://localhost:5000/graphql
+generates:
+  ./client/src/gql/__generated__/graphql.schema.json:
+    plugins:
+      - "introspection"
+    config:
+      minify: true
+  ./client/src/gql/types.ts:
+    plugins:
+      - typescript:
+          typesPrefix: Gql
+          enumPrefix: Gql
+  ./server/gql/types.ts:
+    plugins:
+      - typescript:
+          typesPrefix: Gql
+          enumPrefix: Gql

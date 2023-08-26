@@ -1,0 +1,15 @@
+# Initiatives
+
+type Initiative {
+  uuid: ID!
+  name: String!
+  objective: String!
+  logo: String!
+  onboardingLogo: String!
+  projectTypes: [ProjectType!]!
+}
+
+type InitiativeList {
+  items: [Initiative!]!
+  pageInfo: PaginationInfo!
+}

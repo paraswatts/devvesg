@@ -1,0 +1,12 @@
+.selectNativeInput,
+.selectInput {
+  @apply focus-within:border-blue-500 shadow-sm;
+}
+
+.selectNativeInput {
+  @apply py-3;
+}
+
+.selectNativeInput {
+  @apply py-3;
+}

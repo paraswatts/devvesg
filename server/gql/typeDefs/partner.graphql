@@ -1,0 +1,93 @@
+interface PartnerBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  logo: String
+  contactEmail: String
+  websiteUrl: String
+  contactPhoneNumber: String
+  twitterUrl: String
+  facebookUrl: String
+  linkedInUrl: String
+
+  services: [Service!]!
+}
+
+type Partner implements PartnerBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  logo: String
+  contactEmail: String
+  hubspotId: String
+  websiteUrl: String
+  contactPhoneNumber: String
+  twitterUrl: String
+  facebookUrl: String
+  linkedInUrl: String
+  projectTimeline: Int
+  country: String
+  province: String
+
+  clientTypes: [ClientType!]!
+
+  serviceLocations: [PartnerLocation!]!
+
+  vertical: Vertical
+
+  requirements: RequirementList!
+  requirement(requirementId: ID!): Requirement!
+
+  requirementRequests: RequirementRequestList!
+  requirementRequest(requirementRequestId: ID!): RequirementRequest!
+
+  requirementTypes: [RequirementType!]!
+
+  services: [Service!]!
+}
+
+type PartnerInfo implements PartnerBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  logo: String
+  contactEmail: String
+  websiteUrl: String
+  contactPhoneNumber: String
+  twitterUrl: String
+  facebookUrl: String
+  linkedInUrl: String
+
+  services: [Service!]!
+}
+
+type PartnerLocation {
+  country: String!
+  province: String!
+}
+
+input PartnerUpdateCompanyInformation {
+  country: String!
+  province: String!
+  name: String!
+  description: String!
+  vertical: String!
+  contactEmail: String!
+  websiteUrl: String!
+  contactPhoneNumber: String!
+  facebookUrl: String
+  twitterUrl: String
+  linkedInUrl: String
+}
+
+input PartnerUpdateServiceInformation {
+  projectTimeline: Int!
+  clientTypeIds: [ID!]!
+  serviceLocations: [ServiceLocation!]!
+  requirementTypeIds: [ID!]!
+}
+
+input ServiceLocation {
+  country: String!
+  provinces: [String!]!
+}

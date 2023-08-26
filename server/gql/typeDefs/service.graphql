@@ -1,0 +1,9 @@
+type Service {
+  uuid: ID!
+  name: String!
+}
+
+type ServiceList {
+  items: [Service!]!
+  pageInfo: PaginationInfo!
+}

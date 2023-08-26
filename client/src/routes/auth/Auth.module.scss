@@ -1,0 +1,11 @@
+label.authLabel {
+  @apply text-white;
+}
+
+input.authInput {
+  @apply rounded-none;
+}
+
+input.inputInvalid {
+  @apply border border-red-500
+}

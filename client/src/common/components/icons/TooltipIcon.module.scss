@@ -1,0 +1,11 @@
+.popover {
+  @apply relative inline cursor-pointer;
+  .tooltipContents {
+    @apply hidden absolute top-0 left-5;
+  }
+  &:hover {
+    .tooltipContents {
+      @apply block w-72 z-10;
+    }
+  }
+}

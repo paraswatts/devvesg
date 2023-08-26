@@ -1,0 +1,19 @@
+svg.inprogress, svg.IN_PROGRESS {
+  @apply text-blue-600;
+}
+
+svg.done, svg.DONE {
+  @apply text-green-500;
+}
+
+svg.notstarted, svg.NOT_STARTED {
+  @apply text-neutral-500;
+}
+
+svg.onhold, svg.ON_HOLD {
+  @apply text-red-500;
+}
+
+span.notstarted, span.NOT_STARTED {
+  @apply italic text-neutral-900;
+}

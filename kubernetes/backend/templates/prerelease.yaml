@@ -1,0 +1,73 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: backend-pre-release-rds-migrations-{{ randAlphaNum 5 | lower }}
+  annotations:
+    "helm.sh/hook": post-install,pre-upgrade
+    "helm.sh/hook-weight": "-25"
+    "helm.sh/hook-delete-policy": hook-succeeded
+  labels:
+    {{- include "backend.labels" . | nindent 4 }}
+    {{- include "backend.datadogLabels" . | nindent 4 }}
+spec:
+  template:
+    metadata:
+      name: backend-pre-release-rds-migrations
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
+      labels:
+        {{- include "backend.labels" . | nindent 8 }}
+        {{- include "backend.datadogLabels" . | nindent 8 }}
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: database-migrations
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          env:
+            {{- include "backend.commonEnvironment" . | nindent 12 }}
+          {{- include "backend.commonEnvironmentFrom" . | nindent 10 }}
+          command:
+            - npm
+            - run
+            - db:migrate
+      restartPolicy: Never
+  backoffLimit: 1
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: backend-pre-release-rds-seed-{{ randAlphaNum 5 | lower }}
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "-15"
+    "helm.sh/hook-delete-policy": hook-succeeded
+  labels:
+    {{- include "backend.labels" . | nindent 4 }}
+    {{- include "backend.datadogLabels" . | nindent 4 }}
+spec:
+  template:
+    metadata:
+      name: backend-pre-release-rds-migrations
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
+      labels:
+        {{- include "backend.labels" . | nindent 8 }}
+        {{- include "backend.datadogLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: backend
+      restartPolicy: Never
+      containers:
+        - name: database-seed
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          env:
+            {{- include "backend.commonEnvironment" . | nindent 12 }}
+            - name: NODE_ENV
+              value: development
+          {{- include "backend.commonEnvironmentFrom" . | nindent 10 }}
+          command:
+            - npm
+            - run
+            - db:seed
+      restartPolicy: Never
+  backoffLimit: 1

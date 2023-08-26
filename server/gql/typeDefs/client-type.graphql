@@ -1,0 +1,4 @@
+type ClientType {
+  uuid: ID!
+  name: String!
+}

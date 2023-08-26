@@ -1,0 +1,21 @@
+.link {
+  @apply block pl-7 pr-3 py-3 border-b border-blue-100 text-blue-100 font-bold no-underline transition-colors;
+
+  &:hover,
+  &.linkActive {
+    @apply bg-blue-100 text-blue-900 ;
+  }
+
+  &.mock,
+  &.mock:hover {
+    @apply text-neutral-500 cursor-not-allowed bg-transparent font-light italic;
+  }
+}
+
+.groupHeader {
+  @apply w-full p-3 border-b border-blue-100 text-center text-base font-bold text-white transition-colors;
+
+  &.groupActive {
+    @apply bg-blue-900;
+  }
+}

@@ -1,0 +1,21 @@
+.checkboxInput {
+  @apply bg-transparent rounded focus:ring-blue-500;
+}
+
+.checkboxInput:checked {
+  @apply bg-blue-500;
+}
+
+.checkboxInput:disabled {
+  @apply border-neutral-500;
+}
+
+.checkboxInput:invalid,
+.checkboxInput[aria-invalid='true'] {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+.checkboxInput:invalid + label,
+.checkboxInput[aria-invalid='true'] + label {
+  @apply text-red-500;
+}

@@ -1,0 +1,10 @@
+type CarbonFootprint {
+  uuid: ID!
+  total: Float!
+  createdAt: Date!
+}
+
+type CarbonFootprintList {
+  items: [CarbonFootprint!]!
+  pageInfo: PaginationInfo!
+}

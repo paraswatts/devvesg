@@ -1,0 +1,13 @@
+.trigger {
+  @apply relative font-bold inline-flex justify-center items-center overflow-visible after:content-[attr(data-tooltip)] after:hidden after:hover:block after:bg-white after:absolute after:bottom-0 after:text-xs after:left-1/2 after:z-10 after:p-3 after:rounded after:shadow-xl after:font-normal after:border;
+  svg {
+    @apply text-blue-500;
+  }
+  &:after {
+    transform: translate(-50%, calc(100% + 0.625rem));
+    width: 13rem;
+    &:hover {
+      @apply block;
+    }
+  }
+}

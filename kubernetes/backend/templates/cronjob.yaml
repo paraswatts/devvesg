@@ -1,0 +1,22 @@
+---
+# Nft transfer api call at evry 5 minutes.
+
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "backend.fullname" . }}
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: curl
+            image: nginx
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - curl --location --request GET 'http://{{ include "backend.fullname" . }}:{{ .Values.service.port }}/api/nft/transfer'
+          restartPolicy: OnFailure

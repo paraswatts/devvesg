@@ -1,0 +1,13 @@
+.commonInput {
+  @apply w-full border border-neutral-700 rounded text-sm px-3 py-3 placeholder:text-neutral-500;
+  @apply focus:outline-none focus:ring-0 focus:border-blue-500 focus:text-blue-500;
+}
+
+.commonInput:disabled {
+  @apply border-neutral-500;
+}
+
+.commonInput[aria-invalid='true'] {
+  @apply border-red-500 text-red-500;
+  @apply focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:ring-opacity-30 focus:text-red-500;
+}

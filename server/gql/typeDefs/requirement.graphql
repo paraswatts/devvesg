@@ -1,0 +1,100 @@
+interface RequirementBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  startDate: Date
+  endDate: Date
+  status: RequirementStatus!
+  requestStatus: RequirementRequestStatus!
+
+  requirementType: RequirementType!
+}
+
+type Requirement implements RequirementBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  startDate: Date
+  endDate: Date
+  status: RequirementStatus!
+  requestStatus: RequirementRequestStatus!
+
+  requirementType: RequirementType!
+  documents: [RequirementDocument!]!
+
+  project: ProjectForPartner!
+}
+
+type RequirementList {
+  items: [Requirement!]!
+  pageInfo: PaginationInfo!
+}
+
+type RequirementForClient implements RequirementBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  startDate: Date
+  endDate: Date
+  status: RequirementStatus!
+  requestStatus: RequirementRequestStatus!
+
+  requirementType: RequirementType!
+  documents: [RequirementDocument!]!
+
+  partner: PartnerInfo
+}
+
+type RequirementForClientList {
+  items: [RequirementForClient!]!
+  pageInfo: PaginationInfo!
+}
+
+type RequirementRequest {
+  uuid: ID!
+  name: String!
+  description: String!
+  startDate: Date
+  endDate: Date
+  status: RequirementStatus!
+  requestStatus: RequirementRequestStatus!
+
+  requirementType: RequirementType!
+
+  project: ProjectForPartner!
+}
+
+type RequirementRequestList {
+  items: [RequirementRequest!]!
+  pageInfo: PaginationInfo!
+}
+
+# Documents
+
+type RequirementDocument {
+  uuid: ID!
+  name: String!
+  file: String!
+  type: RequirementDocumentType!
+  createdAt: Date!
+}
+
+# Enums
+
+enum RequirementStatus {
+  DONE
+  IN_PROGRESS
+  NOT_STARTED
+  ON_HOLD
+}
+
+enum RequirementRequestStatus {
+  UNASSIGNED
+  PENDING
+  APPROVED
+}
+
+enum RequirementDocumentType {
+  FILE
+  URL
+}

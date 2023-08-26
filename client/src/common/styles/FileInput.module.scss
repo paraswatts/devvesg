@@ -1,0 +1,28 @@
+.file_input {
+  opacity: 0;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+}
+
+.file_input_label {
+  @apply w-full border border-neutral-700 rounded text-sm px-3 py-3 placeholder:text-neutral-500;
+  @apply focus:outline-none focus:ring-0 focus:border-blue-500 focus:text-blue-500;
+
+  position: absolute;
+  color: #0f66cc;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: none;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.truncate_text {
+  max-width: 400px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

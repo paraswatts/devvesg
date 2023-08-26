@@ -1,0 +1,34 @@
+.heading {
+    width        : 100%;
+    float        : left;
+    margin-bottom: 3.5rem;
+}
+
+table {
+    width: 100%;
+}
+
+table>thead>tr>th {
+    opacity   : 1;
+    font      : normal normal bold 14px/16px Archivo;
+    text-align: left;
+    width:auto
+}
+
+table>tbody>tr>td {
+    padding: 15px;
+    border : 1px lightgray solid;
+}
+
+table>tfoot>tr>td {
+    text-align: center;
+    border    : 1px lightgray solid;
+}
+
+sorting {
+    top    : 357px;
+    left   : 425px;
+    width  : 10px;
+    height : 18px;
+    opacity: 1;
+}

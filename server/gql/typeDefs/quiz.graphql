@@ -1,0 +1,84 @@
+# he available multiple choice options for a question
+type QuizQuestionOption {
+  uuid: ID!
+  name: String!
+  description: String!
+  score: Float!
+  sortOrder: Int!
+  isOther: Boolean
+}
+
+# A dependency for a question to show. Basically, show this question only if this option was previously chosen
+type QuizQuestionDependency {
+  quizQuestionOption: QuizQuestionOption
+}
+
+type QuizScoreType {
+  uuid: ID!
+  name: String
+  description: String!
+  type: Int!
+}
+
+# The association that relates a question to a quiz. Determines order shown and any conditional dependencies for the question to appear
+type QuizQuestion {
+  uuid: ID!
+  name: String!
+  description: String!
+  sortOrder: Int!
+  quizScoreType: QuizScoreType!
+  questionType: Int!
+  lowerLimit: Int
+  upperLimit: Int
+  options: [QuizQuestionOption!]!
+}
+
+# A section that holds a subset of the questions for a quiz
+type QuizSection {
+  uuid: String!
+  name: String!
+  description: String!
+  sortOrder: Int!
+  questions: [QuizQuestion!]!
+  key: String
+}
+
+# The highest level describing a quiz, and will hold all versions of the quiz
+type Quiz {
+  uuid: ID!
+  name: String!
+  sections: [QuizSection!]!
+}
+
+type QuizList {
+  items: [Quiz!]!
+  pageInfo: PaginationInfo!
+}
+
+# Created once a client decides to take a quiz. Tied to an exact version of a quiz
+type QuizInstance {
+  uuid: ID!
+  status: String! # Complete, In Progress, etc
+  score: Int
+  answers: [QuizInstanceAnswer!]!
+  quiz: Quiz!
+  updatedAt: Date!
+}
+
+# An answer to a quiz question
+type QuizInstanceAnswer {
+  uuid: ID!
+  quizQuestion: QuizQuestion!
+  quizQuestionOption: QuizQuestionOption
+  answerValue: String
+}
+
+type Dependency {
+  quizQuestionOption: QuizQuestionOption!
+  quizQuestion: QuizQuestion!
+}
+
+type DependenciesList {
+  items: [Dependency!]!
+  pageInfo: PaginationInfo!
+}

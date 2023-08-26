@@ -1,0 +1,80 @@
+.table_container {
+    height  : 416px;
+    display : block;
+    overflow: auto;
+}
+
+.table_container::-webkit-scrollbar {
+    width: 5px; // for vertical scroll bar
+}
+
+.table_container::-webkit-scrollbar-thumb {
+    background   : #2E64C5;
+    width        : 5px; // for vertical scroll bar
+    height       : 99px;
+    border-radius: 8px;
+}
+
+.table_container::-webkit-scrollbar-track {
+    background: #DDE1E6;
+}
+
+.heading {
+    padding    : 15px;
+    font-weight: bold;
+}
+
+.tbody {
+    padding: 15px;
+    border : 1px lightgray solid
+}
+
+.info {
+    padding    : 15px;
+    border     : 1px lightgray solid;
+    font-weight: bold;
+}
+
+.btn {
+    width: 40%;
+}
+
+.btndiv {
+    margin : 0.5rem;
+    display: inline-block;
+}
+
+.btndiv button {
+    width: 185px;
+}
+
+.nftreviewdiv {
+    margin-top : 20px;
+    margin-left: 13%;
+}
+
+.textarediv {
+    width: 100%;
+}
+
+.buttonarea {
+    width: 100%;
+}
+
+.textarea {
+    border-radius: 0.5rem;
+    width        : 75%;
+}
+
+.contenttext {
+    font-size: 20px;
+}
+
+.headertext {
+    font-size: 33px;
+}
+
+.form_heading {
+    margin   : 2.5%;
+    font-size: 35px;
+}

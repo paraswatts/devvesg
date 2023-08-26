@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: 'Archivo', sans-serif;
+  }
+  h1 {
+    @apply text-2xl mb-6;
+  }
+  h2 {
+    @apply text-xl mb-4;
+  }
+  h3 {
+    @apply text-lg mb-2;
+  }
+  a {
+    @apply text-blue-500 hover:text-blue-100 underline transition-colors;
+  }
+  p {
+    @apply mb-2;
+  }
+}
+
+body {
+  @apply text-neutral-900;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    linear-gradient(rgba(#073263, 0.75), rgba(#073263, 0.75)),
+    linear-gradient(rgba(#032424, 0.75), rgba(#061912, 0)),
+    linear-gradient(rgba(#fff, 0), rgba(#fff, 0), rgba(#fff, 1)),
+    url('./assets/images/bg-image-overlay.png'),
+    url('./assets/images/bg-image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+input::-webkit-input-placeholder {
+  color: #e0e0e0;
+}
+
+input::-moz-placeholder {
+  color: #e0e0e0;
+}
+
+input::-ms-placeholder {
+  color: #e0e0e0;
+}
+
+input::placeholder {
+  color: #e0e0e0;
+}
+
+/* Ant Select */
+.form-select.ant-select .ant-select-selector {
+  border: none;
+  padding: 0.375rem;
+}
+
+.form-select.ant-select.ant-select-single .ant-select-selector {
+  margin-block: 0.375rem;
+}
+
+.form-select.ant-select.ant-select-disabled {
+  border-color: #ccc;
+}
+
+.form-select.ant-select.ant-select-disabled:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: transparent;
+}
+
+.form-select.ant-select-focused:not(.ant--select-disabled).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector,
+.form-select.ant-select:not(.ant--select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  box-shadow: none;
+  border: none;
+}
+
+.form-select.ant-select-focused:not(.ant--select-disabled).ant-select:not(.ant-select-customize-input)
+  .ant-select-selection-search-input {
+  box-shadow: none;
+}
+
+.form-select.ant-select-multiple .ant-select-selector .ant-select-selection-item {
+  background-color: #b1d9fb;
+  color: #073263;
+  align-items: center;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  font-weight: 500;
+  height: 28px;
+}
+
+.form-select.ant-select-multiple .ant-select-selector .ant-select-selection-item .ant-select-selection-item-remove {
+  line-height: 0;
+}
+
+.ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #b1d9fb;
+  color: #073263;
+}
+
+/* Use if we need to change the hover state but it should probably be distinct from the selected state:
+.ant-select-dropdown .ant-select-item-option-active:not(.ant-select-item-option-disabled) {}  */
+
+.react-datepicker-wrapper .react-datepicker__input-container .react-datepicker__close-icon {
+  padding-right: 0.75rem;
+}
+
+// ag-grid alpine theme override styles
+@import url(~ag-grid-community/dist/styles/ag-grid.css);
+@import url(~ag-grid-community/dist/styles/ag-theme-alpine.css);
+.ag-theme-alpine .ag-root-wrapper {
+  --ag-header-background-color: theme('colors.white');
+  --ag-header-foreground-color: theme('colors.black');
+  --ag-header-column-resize-handle-color: theme('colors.blue.100');
+  --ag-background-color: theme('colors.white');
+  --ag-foreground-color: inherit;
+  --ag-border-color: theme('colors.gray.200');
+  --ag-row-border-color: theme('colors.gray.200');
+  --ag-odd-row-background-color: theme('colors.white');
+  --ag-row-hover-color: theme('colors.blue.50');
+  --ag-selected-row-background-color: theme('colors.blue.100');
+  --ag-range-selection-border-color: transparent;
+  --ag-checkbox-checked-color: theme('colors.blue.900');
+}
+
+.ag-theme-alpine .ag-row {
+  @apply text-sm;
+  border-bottom-width: 0;
+}
+
+.ag-theme-alpine .ag-header-cell {
+  padding-left: 0;
+  padding-right: 0;
+  text-transform: uppercase;
+}
+
+.ag-theme-alpine .ag-row:first-child {
+  @apply border-t-0;
+}
+
+.ag-theme-alpine .ag-row:last-child {
+  border-bottom-width: 1px;
+}
+
+.ag-theme-alpine .ag-ltr .ag-cell {
+  border-right: 1px solid;
+  @apply border-r-gray-200;
+}
+
+.ag-theme-alpine .ag-header-row {
+  @apply text-sm font-bold;
+}
+
+.ag-theme-alpine .ag-root-wrapper {
+  border: 0;
+}
+

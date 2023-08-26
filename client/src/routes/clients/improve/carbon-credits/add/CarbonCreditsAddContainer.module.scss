@@ -1,0 +1,37 @@
+.file_input{
+opacity: 0;
+}
+.file_input_label{
+  position: absolute;
+  color:#0f66cc;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: none;
+  margin-top:4px;
+  display: flex;
+  align-items: center;
+  margin-left: 22px;
+}
+
+.title {
+  color:#101011;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.page_number{
+  color:#101011;
+  font-size: 20px;
+}
+
+.form_title{
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.truncate_text{
+  max-width: 400px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

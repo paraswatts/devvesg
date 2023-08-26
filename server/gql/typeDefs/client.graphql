@@ -1,0 +1,60 @@
+interface ClientBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  logo: String
+  contactEmail: String
+  websiteUrl: String
+  contactPhoneNumber: String
+  twitterUrl: String
+  linkedInUrl: String
+  stockTicker: String
+}
+
+type Client implements ClientBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  logo: String
+  contactEmail: String
+  websiteUrl: String
+  contactPhoneNumber: String
+  twitterUrl: String
+  linkedInUrl: String
+  stockTicker: String
+  report1: String
+  report2: String
+
+  clientType: ClientType
+  vertical: Vertical
+
+  latestFootprint: CarbonFootprint
+  footprints: CarbonFootprintList!
+
+  quizzes: [QuizInstance!]!
+  locations: [ClientLocation!]!
+
+  projects: ProjectList!
+  project(projectId: ID!): Project!
+}
+
+type ClientInfo implements ClientBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  logo: String
+  contactEmail: String
+  websiteUrl: String
+  contactPhoneNumber: String
+  twitterUrl: String
+  linkedInUrl: String
+  stockTicker: String
+
+  quizzes: [QuizInstance!]!
+  locations: [ClientLocation!]!
+}
+
+type ClientLocation {
+  country: String!
+  province: String!
+}

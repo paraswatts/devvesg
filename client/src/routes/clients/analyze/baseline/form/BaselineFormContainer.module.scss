@@ -1,0 +1,40 @@
+.rounded_border_radius{
+    width: 100%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.question_list_container {
+    height: 416px;
+    display: block;
+    overflow: auto;
+}
+
+.question_list_container::-webkit-scrollbar {
+    width: 5px; // for vertical scroll bar
+}
+
+.question_list_container::-webkit-scrollbar-thumb {
+    background: #2E64C5;
+    width: 5px; // for vertical scroll bar
+    height: 99px;
+    border-radius: 8px;
+}
+
+.question_list_container::-webkit-scrollbar-track {
+    background: #DDE1E6;
+    border-radius: 8px;
+}
+
+.quiz_title {
+    font: normal normal normal 18px Archivo;
+    color: #101011
+}
+
+.question{
+    &::after{
+        content: url('../../../../../assets/images/checkmark.svg');
+        margin-left: 3px;
+    }
+}

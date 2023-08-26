@@ -1,0 +1,7 @@
+.formFieldLabel {
+  @apply flex items-center gap-1 uppercase font-bold text-xs text-neutral-700;
+}
+
+.formFieldHint {
+  @apply flex items-center gap-1 text-xs text-neutral-600 justify-between;
+}

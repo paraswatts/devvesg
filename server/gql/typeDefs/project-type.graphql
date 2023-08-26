@@ -1,0 +1,18 @@
+# Project Types
+
+type ProjectType {
+    uuid: ID!
+    name: String!
+    objective: String!
+    logo: String
+    requirementTypes: [RequirementType!]!
+}
+
+# Requirement Types
+
+type RequirementType {
+    uuid: ID!
+    name: String!
+    description: String!
+    partners: [PartnerInfo!]!
+}

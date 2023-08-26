@@ -1,0 +1,35 @@
+.progress-rings {
+	display: flex;
+	flex-direction: row;
+	margin-left: 490px;
+}
+
+
+.frame {
+	background: #EBEBEB;
+	border-radius: 100rem;
+	position: relative;
+	height: 150px;
+	width: 150px;
+}
+
+.frame svg { 
+	transform: rotate(-90deg);
+}
+
+.center-ring {
+	background: white;
+	border-radius: 100rem;
+	height: 110px;
+	width: 110px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

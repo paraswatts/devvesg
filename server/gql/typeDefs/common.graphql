@@ -1,0 +1,7 @@
+scalar Date
+
+type PaginationInfo {
+  totalCount: Int!
+  page: Int!
+  pageSize: Int!
+}

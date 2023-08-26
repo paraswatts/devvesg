@@ -1,0 +1,42 @@
+type Query {
+  verticals: VerticalList!
+
+  services: ServiceList!
+
+  clientTypes: [ClientType!]!
+  clientType(clientTypeId: ID!): ClientType!
+
+  initiatives: InitiativeList!
+  initiative(initiativeId: ID!): Initiative!
+  projectType(projectTypeId: ID!): ProjectType!
+
+  client(clientId: ID!): Client!
+  quizzes: QuizList!
+  quiz(quizId: ID!): Quiz!
+  dependencies: DependenciesList!
+  partner(partnerId: ID!): Partner!
+  answers(quizInstanceId: ID!): [QuizInstanceAnswer!]!
+  instance(quizInstanceId: ID!): QuizInstance!
+  history: [QuizInstance!]!
+  latest: [QuizInstance!]!
+  scoreTypes: [QuizScoreType!]!
+}
+
+type Mutation {
+  ping: String!
+
+  clientFootprintCreate(clientId: ID!, total: Float!): CarbonFootprint
+  clientFootprintDelete(carbonFootprintId: ID!, clientId: ID!): ID!
+
+  partnerUpdate(
+    id: ID!
+    companyInformation: PartnerUpdateCompanyInformation
+    servicesInformation: PartnerUpdateServiceInformation
+  ): Partner!
+
+  requirementDisconnectPartner(id: ID!, clientId: ID!, projectId: ID!, reason: String!): Requirement
+  requirementRequestStatusChange(id: ID!, requestStatus: RequirementRequestStatus!): RequirementRequest!
+
+  userDeactivate(id: ID!): Boolean
+  createOrGetQuizInstance(id: ID!): QuizInstance
+}

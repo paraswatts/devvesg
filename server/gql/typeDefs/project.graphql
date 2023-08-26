@@ -1,0 +1,57 @@
+interface ProjectBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  status: ProjectStatus!
+  startDate: Date
+  endGoalDate: Date
+  completionDate: Date
+
+  projectType: ProjectType!
+  initiative: Initiative!
+}
+
+type Project implements ProjectBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  status: ProjectStatus!
+  startDate: Date
+  endGoalDate: Date
+  completionDate: Date
+
+  projectType: ProjectType!
+  initiative: Initiative!
+
+  requirements: [RequirementForClient!]!
+  requirement(requirementId: ID!): RequirementForClient
+}
+
+type ProjectList {
+  items: [Project!]!
+  pageInfo: PaginationInfo!
+}
+
+type ProjectForPartner implements ProjectBase {
+  uuid: ID!
+  name: String!
+  description: String!
+  status: ProjectStatus!
+  startDate: Date
+  endGoalDate: Date
+  completionDate: Date
+
+  projectType: ProjectType!
+  initiative: Initiative!
+
+  client: ClientInfo
+}
+
+# Enums
+
+enum ProjectStatus {
+  DONE
+  IN_PROGRESS
+  NOT_STARTED
+  ON_HOLD
+}

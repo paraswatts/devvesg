@@ -1,0 +1,9 @@
+type Vertical {
+  uuid: String!
+  name: String!
+}
+
+type VerticalList {
+  items: [Vertical!]!
+  pageInfo: PaginationInfo!
+}
